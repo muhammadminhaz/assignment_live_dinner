@@ -29,6 +29,7 @@
     <asset:stylesheet href="style.css"/>
     <!-- Responsive CSS -->
     <asset:stylesheet href="responsive.css"/>
+    <asset:stylesheet href="jquery.mapify.js"/>
     <!-- Custom CSS -->
     <asset:stylesheet href="custom.css"/>
 
@@ -104,17 +105,17 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm">
+                <g:form controller="home" action="sendMessage" id="contactForm">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                                <g:textField type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="" data-error="Please enter your name"/>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                                <g:textField type="text" placeholder="Your Email" id="email" class="form-control" name="email" required="" data-error="Please enter your email"/>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -133,17 +134,17 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
+                                <g:textArea name="message" class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required=""/>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="submit-button text-center">
-                                <button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                                <g:submitButton name="sendMessage" value="sendMessage" class="btn btn-common" id="sendMessage" type="submit">Send Message</g:submitButton>
                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </g:form>
             </div>
         </div>
     </div>
@@ -255,7 +256,10 @@
 <asset:javascript src="form-validator.min.js"></asset:javascript>
 <asset:javascript src="contact-form-script.js"></asset:javascript>
 <asset:javascript src="custom.js"></asset:javascript>
-<script>
+<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap" async defer></script>
+
+
+ <script>
     $('.map-full').mapify({
         points: [
             {

@@ -47,6 +47,7 @@ dependencies {
     compile "org.grails:grails-plugin-rest"
     compile "org.grails:grails-plugin-databinding"
     compile "org.grails:grails-plugin-i18n"
+    compile 'org.grails.plugins:mail:3.0.0'
     compile "org.grails:grails-plugin-services"
     compile "org.grails:grails-plugin-url-mappings"
     compile "org.grails:grails-plugin-interceptors"

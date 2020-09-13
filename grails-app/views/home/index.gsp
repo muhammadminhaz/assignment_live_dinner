@@ -189,6 +189,11 @@
                                 <div class="gallery-single fix">
                                     <asset:image src="img-01.jpg" class="img-fluid" alt="Image"/>
                                     <div class="why-text">
+                                        <g:each in="${drinksList}" var="value">
+                                            <h4>${value.name}</h4>
+                                            <p>${value.details}</p>
+                                            <h5>$ ${value.price}</h5>
+                                        </g:each>
                                         <h4>Special Drinks 1</h4>
                                         <p>Sed id magna vitae eros sagittis euismod.</p>
                                         <h5> $7.79</h5>
